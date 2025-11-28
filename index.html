@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bocanada | Bebidas & Experiencias</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Modular CSS -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components/navbar.css">
+    <link rel="stylesheet" href="css/components/footer.css">
+    <link rel="stylesheet" href="css/components/cards.css">
+    <link rel="stylesheet" href="css/pages/home.css">
+</head>
+<body>
+    <!-- Age Verification Modal -->
+    <div id="age-verification-modal" class="age-modal">
+        <div class="age-modal-content">
+            <div class="age-modal-logo">
+                <img src="assets/logo-bocanada.jpg" alt="Bocanada Logo">
+            </div>
+            <h2>Bienvenido a Bocanada</h2>
+            <p>Debes ser mayor de 18 años para ingresar a este sitio.</p>
+            <p class="age-question">¿Eres mayor de 18 años?</p>
+            <div class="age-modal-actions">
+                <button id="btn-yes" class="btn-primary">SÍ, SOY MAYOR</button>
+                <button id="btn-no" class="btn-secondary">NO, SALIR</button>
+            </div>
+            <p class="legal-text">Al ingresar, aceptas nuestros términos y condiciones. Bebe con moderación.</p>
+        </div>
+    </div>
+
+    <header class="site-header">
+        <nav class="navbar">
+            <div class="container nav-container">
+                <a href="#" class="logo">
+                    <img src="assets/logo-bocanada.jpg" alt="Bocanada Logo" class="nav-logo-img">
+                    <span>Bocanada</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#hero">Inicio</a></li>
+                    <li><a href="#ofertas">Ofertas</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#contacto" class="btn-primary">Contacto</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+
+        <nav class="secondary-navbar">
+            <div class="container">
+                <ul class="secondary-nav-links">
+                    <li><a href="combos.html">Combos Destilados & Promos</a></li>
+                    <li><a href="alcoholicas.html">Bebidas Alcohólicas</a></li>
+                    <li><a href="sin-alcohol.html">Bebidas Sin Alcohol</a></li>
+                    <li><a href="energizantes.html">Energizantes</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section id="hero" class="hero">
+        <div class="video-overlay"></div>
+        <img src="assets/hero-bg.png" alt="Fondo elegante de bebidas" class="hero-bg">
+        <div class="hero-content container">
+            <h1 class="fade-in">El Arte de Beber Bien</h1>
+            <p class="fade-in delay-1">Descubre nuestra selección premium de bebidas y licores.</p>
+            <a href="#ofertas" class="btn-primary fade-in delay-2">Ver Ofertas</a>
+            <p class="shipping-note fade-in delay-2"><i class="fas fa-truck-fast"></i> Envíos a todo Mendoza hasta las 3:30</p>
+        </div>
+    </section>
+
+    <section id="ofertas" class="section offers">
+        <div class="container">
+            <h2 class="section-title">Ofertas Exclusivas</h2>
+            <div class="offers-grid">
+                <div class="offer-card fade-in-up">
+                    <div class="offer-image">
+                        <img src="assets/oferta Jack Daniels.jpg" alt="Oferta Jack Daniels">
+                    </div>
+                    <div class="offer-details">
+                        <h3>Jack Daniel's</h3>
+                        <p>El clásico Tennessee Whiskey. Suavizado gota a gota.</p>
+                        <span class="price-tag">Oferta Especial</span>
+                    </div>
+                </div>
+                <div class="offer-card fade-in-up delay-1">
+                    <div class="offer-image">
+                        <img src="assets/oferta Jagger.jpg" alt="Oferta Jägermeister">
+                    </div>
+                    <div class="offer-details">
+                        <h3>Jägermeister</h3>
+                        <p>56 hierbas, un sabor inconfundible. Sírvelo helado.</p>
+                        <span class="price-tag">Best Seller</span>
+                    </div>
+                </div>
+                <div class="offer-card fade-in-up delay-2">
+                    <div class="offer-image">
+                        <img src="assets/oferta Red Label.jpg" alt="Oferta Johnnie Walker Red Label">
+                    </div>
+                    <div class="offer-details">
+                        <h3>Red Label</h3>
+                        <p>El whisky escocés de mezcla más vendido del mundo.</p>
+                        <span class="price-tag">Imperdible</span>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="assets/listado-stock.jpg" download="Bocanada-Listado-Stock" class="btn-primary fade-in-up"><i class="fas fa-file-download"></i> Descargar Lista de Precios</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="nosotros" class="section about">
+        <div class="container about-container">
+            <div class="about-text">
+                <h2 class="section-title">Sobre Bocanada</h2>
+                <p>En Bocanada, no solo vendemos bebidas; curamos experiencias. Desde los clásicos atemporales hasta las últimas tendencias en mixología, nuestra selección está pensada para los paladares más exigentes.</p>
+                <p><strong>Realizamos ventas mayoristas y minoristas.</strong> Ya sea para tu disfrute personal, un evento especial o para abastecer tu negocio, tenemos los mejores precios y el stock que necesitas.</p>
+                <p>Contáctanos para realizar tu pedido y recibir asesoramiento personalizado.</p>
+            </div>
+            <div class="about-image">
+                 <img src="assets/logo-bocanada.jpg" alt="Interior Bocanada">
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacto" class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h3>Bocanada</h3>
+                <p>Tu destino para las mejores bebidas.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Enlaces</h4>
+                <a href="#hero">Inicio</a>
+                <a href="#ofertas">Ofertas</a>
+                <a href="#nosotros">Nosotros</a>
+            </div>
+            <div class="footer-contact">
+                <h4>Contacto</h4>
+                <p><i class="fas fa-truck"></i> Envíos a todo Mendoza hasta las 3:30</p>
+                <p><i class="fas fa-boxes-stacked"></i> Ventas Mayoristas y Minoristas</p>
+                <div class="socials">
+                    <a href="https://www.instagram.com/bocanada.bebidas/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/5492612596488" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Bocanada. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modular JS -->
+    <script src="js/main.js"></script>
+    <script src="js/age-verification.js"></script>
+</body>
+</html>
