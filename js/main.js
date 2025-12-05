@@ -1,22 +1,8 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // Navbar Scroll Effect
-  const header = document.querySelector(".site-header");
-  const navbar = document.querySelector(".navbar");
-  
-  // Use header if it exists, otherwise fallback to navbar (though we plan to use header)
-  const targetElement = header || navbar;
-
-  if (targetElement) {
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 50) {
-          targetElement.classList.add("scrolled");
-        } else {
-          targetElement.classList.remove("scrolled");
-        }
-      });
+          });
+      }
   }
 
-  // Intersection Observer for Scroll Animations
+  // Intersection Observer para Animaciones de Scroll
   const observerOptions = {
     threshold: 0.1,
     rootMargin: "0px 0px -50px 0px",
@@ -26,19 +12,19 @@ document.addEventListener("DOMContentLoaded", () => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("visible");
-        observer.unobserve(entry.target); // Only animate once
+        observer.unobserve(entry.target); // Animar solo una vez
       }
     });
   }, observerOptions);
 
-  const animatedElements = document.querySelectorAll(".fade-in-up, .fade-in");
+  const animatedElements = document.querySelectorAll(".aparecer-arriba, .aparecer");
   animatedElements.forEach((el) => observer.observe(el));
 
-  // Smooth Scroll for Anchor Links
+  // Scroll Suave para Enlaces Ancla
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       const href = this.getAttribute("href");
-      // Only prevent default if it's a hash link on the same page
+      // Solo prevenir el comportamiento por defecto si es un enlace hash en la misma página
       if (href.startsWith("#") && href.length > 1) {
           e.preventDefault();
           const target = document.querySelector(href);
@@ -51,17 +37,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-    // Mobile Menu Toggle
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    const links = document.querySelectorAll('.nav-links li');
+    // Toggle de Menú Móvil
+    const hamburger = document.querySelector('.hamburguesa');
+    const navLinks = document.querySelector('.enlaces-nav');
+    const links = document.querySelectorAll('.enlaces-nav li');
 
     if (hamburger) {
         hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('nav-active');
-            hamburger.classList.toggle('active');
+            navLinks.classList.toggle('nav-activo');
+            hamburger.classList.toggle('activo');
 
-            // Animate Links
+            // Animar Enlaces
             links.forEach((link, index) => {
                 if (link.style.animation) {
                     link.style.animation = '';
@@ -71,15 +57,53 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
 
-        // Close menu when clicking a link
+        // Cerrar menú al hacer click en un enlace
         links.forEach(link => {
             link.addEventListener('click', () => {
-                navLinks.classList.remove('nav-active');
-                hamburger.classList.remove('active');
+                navLinks.classList.remove('nav-activo');
+                hamburger.classList.remove('activo');
                 links.forEach(link => {
                     link.style.animation = '';
                 });
             });
         });
     }
+
+    // Notificación Toast para Tarjetas de Oferta
+    const offerCards = document.querySelectorAll('.tarjeta-oferta');
+    offerCards.forEach(card => {
+        card.style.cursor = 'pointer'; // Hacer que parezca clicable
+        card.addEventListener('click', () => {
+            // Extraer nombre del producto para mejor UX
+            const title = card.querySelector('h3')?.innerText || 'Producto';
+            // Verificar si showToast está definido (ahora es global)
+            if (typeof showToast === 'function') {
+                showToast(`${title} agregado al carrito`);
+            } else {
+                console.warn('showToast function not found');
+            }
+        });
+    });
+
+
+    // Lógica de Skeleton Loading
+    const offerImages = document.querySelectorAll('.imagen-oferta');
+    
+    offerImages.forEach(container => {
+        // Verificar si la imagen ya está cargada
+        const img = container.querySelector('img');
+        
+        if (img) {
+             if (img.complete) {
+                container.classList.remove('cargando-esqueleto');
+             } else {
+                container.classList.add('cargando-esqueleto');
+                img.addEventListener('load', () => {
+                    container.classList.remove('cargando-esqueleto');
+                    img.style.opacity = '1'; // Efecto de aparición gradual
+                });
+             }
+        }
+    });
+
 });

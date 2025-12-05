@@ -1,4 +1,4 @@
-/* Hero styles moved to global.css */
+/* Estilos Hero movidos a global.css */
 
 .shipping-note {
     margin-top: 20px;
@@ -13,7 +13,11 @@
     gap: 10px;
 }
 
-/* About Section */
+body.tema-claro .shipping-note {
+    color: #000000 !important;
+}
+
+/* Sección Nosotros */
 .about-container {
   display: grid;
   grid-template-columns: 1fr 1fr;

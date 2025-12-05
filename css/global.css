@@ -8,6 +8,45 @@
   --font-main: "Outfit", sans-serif;
   --font-display: "Playfair Display", serif;
   --transition: all 0.3s ease;
+  
+  /* Variables de Tema Claro (Sobrescribir en .light-theme) */
+  --bg-light: #f5f5f5;
+  --bg-card-light: #ffffff;
+  --text-primary-light: #1a1a1a;
+  --text-secondary-light: #555555;
+}
+
+body.tema-claro {
+    --bg-dark: var(--bg-light);
+    --bg-card: var(--bg-card-light);
+    --text-primary: var(--text-primary-light);
+    --text-secondary: var(--text-secondary-light);
+    /* Gold accent remains the same or slightly adjusted if needed */
+}
+
+/* Ajustes específicos para Tema Claro si las variables no son suficientes */
+body.tema-claro .barra-navegacion, 
+body.tema-claro .barra-navegacion-secundaria {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+body.tema-claro .encabezado-sitio.desplazado {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+body.tema-claro .tarjeta-oferta {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+body.tema-claro .detalles-oferta h3 {
+    color: var(--text-primary);
+}
+
+body.tema-claro .detalles-oferta p {
+    color: var(--text-secondary);
 }
 
 * {
@@ -22,11 +61,20 @@ body {
     color: var(--text-primary);
     font-family: var(--font-main);
     line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 a {
     text-decoration: none;
     color: inherit;
+}
+
+/* Accesibilidad via Teclado */
+:focus-visible {
+    outline: 2px solid var(--accent-gold);
+    outline-offset: 4px;
 }
 
 ul {
@@ -38,14 +86,14 @@ img {
   display: block;
 }
 
-.container {
+.contenedor {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
-.btn-primary {
+.boton-primario {
   display: inline-block;
   padding: 12px 30px;
   background-color: var(--accent-gold);
@@ -59,17 +107,17 @@ img {
   cursor: pointer;
 }
 
-.btn-primary:hover {
+.boton-primario:hover {
   background-color: var(--accent-gold-hover);
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
 }
 
-.section {
+.seccion {
   padding: 100px 0;
 }
 
-.section-title {
+.titulo-seccion {
   font-family: var(--font-display);
   font-size: 2.5rem;
   text-align: center;
@@ -77,8 +125,8 @@ img {
   color: var(--accent-gold);
 }
 
-/* Hero Section (Global) */
-.hero {
+/* Sección Hero (Global) */
+.portada {
   position: relative;
   height: 100vh;
   display: flex;
@@ -88,7 +136,7 @@ img {
   overflow: hidden;
 }
 
-.hero-bg {
+.fondo-portada {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -97,9 +145,10 @@ img {
   min-height: 100%;
   z-index: -1;
   object-fit: cover;
+  will-change: transform; /* Optimización de rendimiento */
 }
 
-.video-overlay {
+.superposicion-video {
   position: absolute;
   top: 0;
   left: 0;
@@ -109,13 +158,13 @@ img {
   z-index: 0;
 }
 
-.hero-content {
+.contenido-portada {
   position: relative;
   z-index: 1;
   max-width: 800px;
 }
 
-.hero h1 {
+.portada h1 {
   font-family: var(--font-display);
   font-size: 4rem;
   margin-bottom: 20px;
@@ -123,35 +172,35 @@ img {
   color: var(--text-primary);
 }
 
-.hero p {
+.portada p {
   font-size: 1.2rem;
   color: rgba(255, 255, 255, 0.8);
   margin-bottom: 30px;
 }
 
-/* Animations */
-.fade-in {
+/* Animaciones */
+.aparecer {
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.8s forwards;
 }
 
-.fade-in-up {
+.aparecer-arriba {
   opacity: 0;
   transform: translateY(30px);
   transition: all 0.6s ease-out;
 }
 
-.fade-in-up.visible {
+.aparecer-arriba.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-.delay-1 {
+.retraso-1 {
   animation-delay: 0.2s;
   transition-delay: 0.2s;
 }
-.delay-2 {
+.retraso-2 {
   animation-delay: 0.4s;
   transition-delay: 0.4s;
 }
@@ -163,8 +212,8 @@ img {
   }
 }
 
-/* Age Verification Modal */
-.age-modal {
+/* Modal de Verificación de Edad */
+.modal-edad {
     position: fixed;
     top: 0;
     left: 0;
@@ -179,12 +228,12 @@ img {
     transition: opacity 0.5s ease;
 }
 
-.age-modal.hidden {
+.modal-edad.oculto {
     opacity: 0;
     pointer-events: none;
 }
 
-.age-modal-content {
+.contenido-modal-edad {
     background-color: var(--bg-card);
     padding: 3rem;
     border-radius: 15px;
@@ -195,7 +244,7 @@ img {
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
-.age-modal-logo img {
+.logo-modal-edad img {
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -205,20 +254,20 @@ img {
     margin-right: auto;
 }
 
-.age-modal h2 {
+.modal-edad h2 {
     font-family: var(--font-display);
     font-size: 2rem;
     margin-bottom: 1rem;
     color: var(--text-primary);
 }
 
-.age-modal p {
+.modal-edad p {
     color: var(--text-secondary);
     margin-bottom: 1rem;
     font-size: 1.1rem;
 }
 
-.age-modal .age-question {
+.modal-edad .pregunta-edad {
     font-weight: 600;
     color: var(--text-primary);
     margin-top: 1.5rem;
@@ -226,14 +275,14 @@ img {
     font-size: 1.2rem;
 }
 
-.age-modal-actions {
+.acciones-modal-edad {
     display: flex;
     gap: 1rem;
     justify-content: center;
     margin-bottom: 2rem;
 }
 
-.age-modal .btn-secondary {
+.modal-edad .boton-secundario {
     background-color: transparent;
     border: 2px solid var(--text-secondary);
     color: var(--text-secondary);
@@ -247,12 +296,12 @@ img {
     font-size: 0.9rem;
 }
 
-.age-modal .btn-secondary:hover {
+.modal-edad .boton-secundario:hover {
     border-color: var(--accent-gold);
     color: var(--accent-gold);
 }
 
-.age-modal .legal-text {
+.modal-edad .texto-legal {
     font-size: 0.8rem;
     color: var(--text-secondary);
     opacity: 0.7;
@@ -260,16 +309,42 @@ img {
 }
 
 @media (max-width: 480px) {
-    .age-modal-content {
+    .contenido-modal-edad {
         padding: 2rem;
     }
     
-    .age-modal-actions {
+    .acciones-modal-edad {
         flex-direction: column;
     }
     
-    .age-modal .btn-primary,
-    .age-modal .btn-secondary {
+    .modal-edad .boton-primario,
+    .modal-edad .boton-secundario {
         width: 100%;
     }
+}
+
+/* Carga Skeleton */
+.esqueleto {
+    background: #1e1e1e;
+    background: linear-gradient(110deg, #1e1e1e 8%, #2a2a2a 18%, #1e1e1e 33%);
+    border-radius: 5px;
+    background-size: 200% 100%;
+    animation: 1.5s shimmer linear infinite;
+}
+
+@keyframes shimmer {
+    to {
+        background-position-x: -200%;
+    }
+}
+
+.offer-image.cargando-esqueleto img {
+    opacity: 0;
+}
+
+.offer-image.cargando-esqueleto {
+    background: #1e1e1e;
+    background: linear-gradient(110deg, #1e1e1e 8%, #2a2a2a 18%, #1e1e1e 33%);
+    background-size: 200% 100%;
+    animation: 1.5s shimmer linear infinite;
 }

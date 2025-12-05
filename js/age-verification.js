@@ -1,30 +1,30 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Age Verification Logic
+    // Lógica de Verificación de Edad
     const ageModal = document.getElementById('age-verification-modal');
     const btnYes = document.getElementById('btn-yes');
     const btnNo = document.getElementById('btn-no');
 
     if (ageModal) {
-        // Check if age is already verified
+        // Verificar si la edad ya está confirmada
         if (!localStorage.getItem('ageVerified')) {
-            // Show modal if not verified
+            // Mostrar modal si no está verificado
             document.body.style.overflow = 'hidden';
-            ageModal.classList.remove('hidden');
+            ageModal.classList.remove('oculto');
         } else {
-            ageModal.classList.add('hidden');
+            ageModal.classList.add('oculto');
         }
 
         if (btnYes) {
             btnYes.addEventListener('click', () => {
                 localStorage.setItem('ageVerified', 'true');
-                ageModal.classList.add('hidden');
-                document.body.style.overflow = 'auto'; // Restore scrolling
+                ageModal.classList.add('oculto');
+                document.body.style.overflow = 'auto'; // Restaurar scroll
             });
         }
 
         if (btnNo) {
             btnNo.addEventListener('click', () => {
-                // Redirect to Google or show a message
+                // Redirigir a Google o mostrar un mensaje
                 window.location.href = 'https://www.google.com';
             });
         }

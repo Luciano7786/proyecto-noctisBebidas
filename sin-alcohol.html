@@ -3,52 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bebidas Sin Alcohol | Bocanada</title>
-    <link rel="icon" href="assets/logo-bocanada.jpg" type="image/jpeg">
+    <title>Bebidas Sin Alcohol | NOCTIS</title>
+    <link rel="icon" href="assets/logo-noctis.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Modular CSS -->
+    <!-- CSS Modular -->
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/components/navbar.css">
     <link rel="stylesheet" href="css/components/footer.css">
     <link rel="stylesheet" href="css/components/cards.css">
+    <link rel="stylesheet" href="css/components/toast.css">
+    <link rel="stylesheet" href="css/components/cart.css">
     <link rel="stylesheet" href="css/pages/sin-alcohol.css">
 </head>
 <body>
-    <!-- Age Verification Modal -->
-    <div id="age-verification-modal" class="age-modal">
-        <div class="age-modal-content">
-            <div class="age-modal-logo">
-                <img src="assets/logo-bocanada.jpg" alt="Bocanada Logo">
+    <!-- Modal de Verificación de Edad -->
+    <div id="age-verification-modal" class="modal-edad">
+        <div class="contenido-modal-edad">
+            <div class="logo-modal-edad">
+                <img src="assets/logo-noctis.png" alt="NOCTIS Logo">
             </div>
-            <h2>Bienvenido a Bocanada</h2>
+            <h2>Bienvenido a NOCTIS</h2>
             <p>Debes ser mayor de 18 años para ingresar a este sitio.</p>
-            <p class="age-question">¿Eres mayor de 18 años?</p>
-            <div class="age-modal-actions">
-                <button id="btn-yes" class="btn-primary">SÍ, SOY MAYOR</button>
-                <button id="btn-no" class="btn-secondary">NO, SALIR</button>
+            <p class="pregunta-edad">¿Eres mayor de 18 años?</p>
+            <div class="acciones-modal-edad">
+                <button id="btn-yes" class="boton-primario">SÍ, SOY MAYOR</button>
+                <button id="btn-no" class="boton-secundario">NO, SALIR</button>
             </div>
-            <p class="legal-text">Al ingresar, aceptas nuestros términos y condiciones. Bebe con moderación.</p>
+            <p class="texto-legal">Al ingresar, aceptas nuestros términos y condiciones. Bebe con moderación.</p>
         </div>
     </div>
 
-    <header class="site-header">
-        <nav class="navbar">
-            <div class="container nav-container">
+    <header class="encabezado-sitio">
+        <nav class="barra-navegacion">
+            <div class="contenedor contenedor-nav">
                 <a href="index.html" class="logo">
-                    <img src="assets/logo-bocanada.jpg" alt="Bocanada Logo" class="nav-logo-img">
-                    <span>Bocanada</span>
+                    <img src="assets/logo-noctis.png" alt="NOCTIS Logo" class="img-logo-nav">
+                    <span>NOCTIS</span>
                 </a>
-                <ul class="nav-links">
+                <ul class="enlaces-nav">
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="index.html#ofertas">Ofertas</a></li>
                     <li><a href="index.html#nosotros">Nosotros</a></li>
-                    <li><a href="index.html#contacto" class="btn-primary">Contacto</a></li>
+                    <li><a href="index.html#contacto" class="boton-primario">Contacto</a></li>
                 </ul>
-                <div class="hamburger">
+                <div class="hamburguesa">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -56,92 +58,130 @@
             </div>
         </nav>
 
-        <nav class="secondary-navbar">
-            <div class="container">
-                <ul class="secondary-nav-links">
+        <nav class="barra-navegacion-secundaria">
+            <div class="contenedor">
+                <ul class="enlaces-nav-secundaria">
                     <li><a href="combos.html">Combos Destilados & Promos</a></li>
                     <li><a href="alcoholicas.html">Bebidas Alcohólicas</a></li>
-                    <li><a href="sin-alcohol.html" class="active">Bebidas Sin Alcohol</a></li>
-                    <li><a href="energizantes.html">Energizantes</a></li>
+                    <li><a href="sin-alcohol.html" class="activo">Bebidas Sin Alcohol</a></li>
                 </ul>
+                <div class="contenedor-busqueda">
+                    <input type="text" id="busqueda-producto" placeholder="Buscar productos...">
+                    <i class="fas fa-search"></i>
+                </div>
             </div>
         </nav>
     </header>
 
-    <section class="hero">
-        <div class="video-overlay"></div>
-        <img src="assets/hero-bg-internal.png" alt="Fondo elegante de bebidas" class="hero-bg">
-        <div class="hero-content container">
-            <!-- Text removed as requested -->
+    <section class="portada">
+        <div class="superposicion-video"></div>
+        <img src="assets/hero-bg-internal.png" alt="Fondo elegante de bebidas" class="fondo-portada">
+        <div class="contenido-portada contenedor">
+            <h1 class="aparecer">Bebidas Sin Alcohol</h1>
         </div>
     </section>
 
-    <section class="section">
-        <div class="container">
-            <div class="offers-grid">
-                <div class="offer-card fade-in-up">
-                    <div class="offer-image">
-                        <img src="assets/coca-2.5ml.jpg" alt="Coca-Cola 2.5L">
+    <section class="seccion">
+        <div class="contenedor">
+            <div class="grilla-ofertas">
+                <!-- Speed -->
+                <div class="tarjeta-oferta">
+                    <div class="imagen-oferta">
+                        <img src="assets/speed.png" alt="Speed" loading="lazy">
                     </div>
-                    <div class="offer-details">
-                        <h3>Coca-Cola</h3>
-                        <p>Sabor Original 2.5L</p>
-                        <span class="price-tag">$4100</span>
-                    </div>
-                </div>
-                <div class="offer-card fade-in-up delay-1">
-                    <div class="offer-image">
-                        <img src="assets/paso-de-los-toros-1.5ml.png" alt="Paso de los Toros">
-                    </div>
-                    <div class="offer-details">
-                        <h3>Paso de los Toros</h3>
-                        <p>Pomelo 1.5L</p>
-                        <span class="price-tag">$3000</span>
+                    <div class="detalles-oferta">
+                        <h3>Speed Unlimited</h3>
+                        <p>Energizante 473ml</p>
+                        <span class="etiqueta-precio">$4.100</span>
                     </div>
                 </div>
-                <div class="offer-card fade-in-up delay-2">
-                    <div class="offer-image">
-                        <img src="assets/bolsa-hielo.png" alt="Bolsa de Hielo">
+
+                <!-- Red Bull -->
+                <div class="tarjeta-oferta">
+                    <div class="imagen-oferta">
+                        <img src="assets/redbull.png" alt="Red Bull" loading="lazy">
                     </div>
-                    <div class="offer-details">
-                        <h3>Bolsa de Hielo</h3>
-                        <p>Rolito</p>
-                        <span class="price-tag">$2800</span>
+                    <div class="detalles-oferta">
+                        <h3>Red Bull</h3>
+                        <p>Energizante 250ml</p>
+                        <span class="etiqueta-precio">$3.000</span>
+                    </div>
+                </div>
+
+                <!-- Coca Cola -->
+                <div class="tarjeta-oferta">
+                    <div class="imagen-oferta">
+                        <img src="assets/coca-2.5ml.jpg" alt="Coca Cola" loading="lazy">
+                    </div>
+                    <div class="detalles-oferta">
+                        <h3>Coca Cola</h3>
+                        <p>Sabor Original 1.5L</p>
+                        <span class="etiqueta-precio">$2.800</span>
+                    </div>
+                </div>
+
+
+
+
+
+                <!-- Paso de los Toros Tónica -->
+                <div class="tarjeta-oferta">
+                    <div class="imagen-oferta">
+                        <img src="assets/paso-de-los-toros-1.5ml.png" alt="Agua Tónica" loading="lazy">
+                    </div>
+                    <div class="detalles-oferta">
+                        <h3>Agua Tónica</h3>
+                        <p>Paso de los Toros 1.5L</p>
+                        <span class="etiqueta-precio">$3.000</span>
+                    </div>
+                </div>
+
+                <!-- Monster -->
+                <div class="tarjeta-oferta">
+                    <div class="imagen-oferta">
+                        <img src="assets/monster.png" alt="Monster" loading="lazy">
+                    </div>
+                    <div class="detalles-oferta">
+                        <h3>Monster Energy</h3>
+                        <p>Energizante 473ml</p>
+                        <span class="etiqueta-precio">$4.500</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer id="contacto" class="footer">
-        <div class="container footer-content">
-            <div class="footer-brand">
-                <h3>Bocanada</h3>
+    <footer id="contacto" class="pie-pagina">
+        <div class="contenedor contenido-pie-pagina">
+            <div class="marca-pie-pagina">
+                <h3>NOCTIS</h3>
                 <p>Tu destino para las mejores bebidas.</p>
             </div>
-            <div class="footer-links">
+            <div class="enlaces-pie-pagina">
                 <h4>Enlaces</h4>
                 <a href="index.html">Inicio</a>
                 <a href="index.html#ofertas">Ofertas</a>
                 <a href="index.html#nosotros">Nosotros</a>
             </div>
-            <div class="footer-contact">
+            <div class="contacto-pie-pagina">
                 <h4>Contacto</h4>
                 <p><i class="fas fa-truck"></i> Envíos a todo Mendoza hasta las 3:30</p>
                 <p><i class="fas fa-boxes-stacked"></i> Ventas Mayoristas y Minoristas</p>
-                <div class="socials">
-                    <a href="https://www.instagram.com/bocanada.bebidas/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://wa.me/5492612596488" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <div class="redes-sociales">
+                    <a href="#" aria-label="Instagram" style="cursor: default;"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="WhatsApp" style="cursor: default;"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Bocanada. Todos los derechos reservados.</p>
+        <div class="fondo-pie-pagina">
+            <p>&copy; 2025 NOCTIS. Todos los derechos reservados.</p>
         </div>
     </footer>
-
-    <!-- Modular JS -->
+    <script src="js/cart.js"></script>
+    <script src="js/toast.js"></script>
+    <script src="js/quick-view.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/theme.js"></script>
     <script src="js/age-verification.js"></script>
 </body>
 </html>

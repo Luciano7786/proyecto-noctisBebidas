@@ -1,0 +1,232 @@
+/* Botón Flotante del Carrito */
+#btn-icono-carrito {
+    position: fixed;
+    bottom: 30px;
+    right: 30px; /* Ajustar si el toast está ahí */
+    width: 60px;
+    height: 60px;
+    background: var(--accent-gold);
+    color: var(--bg-dark);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    cursor: pointer;
+    z-index: 9999;
+    transition: var(--transition);
+}
+
+#btn-icono-carrito:hover {
+    transform: scale(1.1);
+}
+
+#badge-carrito {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background: #ff4757;
+    color: white;
+    font-size: 0.8rem;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex; /* controlado por JS */
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    border: 2px solid var(--bg-dark);
+}
+
+/* Drawer del Carrito */
+#cajon-carrito {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 350px;
+    height: 100vh;
+    background: #1a1a1a;
+    z-index: 10000;
+    box-shadow: -10px 0 50px rgba(0,0,0,0.5);
+    transition: right 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#cajon-carrito.abierto {
+    right: 0;
+}
+
+/* Layout del Encabezado del Carrito */
+.encabezado-carrito {
+    padding: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.encabezado-carrito h2 {
+    font-family: var(--font-display);
+    color: var(--accent-gold);
+    font-size: 1.5rem;
+}
+
+.acciones-encabezado {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#cerrar-carrito {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 2rem;
+    cursor: pointer;
+    line-height: 1;
+}
+
+#papelera-vaciar-carrito {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+#papelera-vaciar-carrito:hover {
+    color: #ff4757; /* Rojo para acción destructiva */
+}
+
+#cerrar-carrito:hover {
+    color: var(--accent-gold);
+}
+
+.items-carrito {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.item-carrito {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.detalles-item-carrito h4 {
+    color: var(--text-primary);
+    margin-bottom: 5px;
+}
+
+.precio-item-carrito {
+    color: var(--accent-gold);
+}
+
+.controles-carrito {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(0,0,0,0.3);
+    padding: 5px;
+    border-radius: 20px;
+}
+
+.btn-cantidad {
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-cantidad:hover {
+    color: var(--accent-gold);
+}
+
+.pie-carrito {
+    padding: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: #141414;
+}
+
+.total-carrito {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: var(--text-primary);
+}
+
+.msg-vacio {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-top: 50px;
+}
+
+@media (max-width: 480px) {
+    #cajon-carrito {
+        width: 100%;
+        right: -100%;
+    }
+}
+
+/* Sobrescrituras de Carrito para Tema Claro */
+body.tema-claro #cajon-carrito {
+    background: #ffffff; /* Fondo claro */
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: -10px 0 50px rgba(0,0,0,0.1);
+}
+
+body.tema-claro .encabezado-carrito {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+body.tema-claro .item-carrito {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+body.tema-claro .detalles-item-carrito h4 {
+    color: #000; /* Texto oscuro */
+}
+
+body.tema-claro .controles-carrito {
+    background: rgba(0,0,0,0.05); /* Fondo gris claro para controles */
+}
+
+body.tema-claro .btn-cantidad {
+    color: #000;
+}
+
+body.tema-claro .pie-carrito {
+    background: #f9f9f9; /* Ligeramente más oscuro que el drawer para separación */
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+body.tema-claro .total-carrito {
+    color: #000;
+}
+
+body.tema-claro .msg-vacio {
+    color: #666;
+}
+
+body.tema-claro #cerrar-carrito,
+body.tema-claro #papelera-vaciar-carrito {
+    color: #666;
+}
+
+body.tema-claro #cerrar-carrito:hover,
+body.tema-claro #papelera-vaciar-carrito:hover {
+    color: var(--accent-gold); /* O mantener comportamiento hover original */
+}

@@ -3,52 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Combos & Promos | Bocanada</title>
-    <link rel="icon" href="assets/logo-bocanada.jpg" type="image/jpeg">
+    <title>Combos & Promos | NOCTIS</title>
+    <link rel="icon" href="assets/logo-noctis.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Modular CSS -->
+    <!-- CSS Modular -->
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/components/navbar.css">
     <link rel="stylesheet" href="css/components/footer.css">
     <link rel="stylesheet" href="css/components/cards.css">
+    <link rel="stylesheet" href="css/components/toast.css">
+    <link rel="stylesheet" href="css/components/cart.css">
     <link rel="stylesheet" href="css/pages/combos.css">
 </head>
 <body>
-    <!-- Age Verification Modal -->
-    <div id="age-verification-modal" class="age-modal">
-        <div class="age-modal-content">
-            <div class="age-modal-logo">
-                <img src="assets/logo-bocanada.jpg" alt="Bocanada Logo">
+    <!-- Modal de Verificación de Edad -->
+    <div id="age-verification-modal" class="modal-edad">
+        <div class="contenido-modal-edad">
+            <div class="logo-modal-edad">
+                <img src="assets/logo-noctis.png" alt="NOCTIS Logo">
             </div>
-            <h2>Bienvenido a Bocanada</h2>
+            <h2>Bienvenido a NOCTIS</h2>
             <p>Debes ser mayor de 18 años para ingresar a este sitio.</p>
-            <p class="age-question">¿Eres mayor de 18 años?</p>
-            <div class="age-modal-actions">
-                <button id="btn-yes" class="btn-primary">SÍ, SOY MAYOR</button>
-                <button id="btn-no" class="btn-secondary">NO, SALIR</button>
+            <p class="pregunta-edad">¿Eres mayor de 18 años?</p>
+            <div class="acciones-modal-edad">
+                <button id="btn-yes" class="boton-primario">SÍ, SOY MAYOR</button>
+                <button id="btn-no" class="boton-secundario">NO, SALIR</button>
             </div>
-            <p class="legal-text">Al ingresar, aceptas nuestros términos y condiciones. Bebe con moderación.</p>
+            <p class="texto-legal">Al ingresar, aceptas nuestros términos y condiciones. Bebe con moderación.</p>
         </div>
     </div>
 
-    <header class="site-header">
-        <nav class="navbar">
-            <div class="container nav-container">
+    <header class="encabezado-sitio">
+        <nav class="barra-navegacion">
+            <div class="contenedor contenedor-nav">
                 <a href="index.html" class="logo">
-                    <img src="assets/logo-bocanada.jpg" alt="Bocanada Logo" class="nav-logo-img">
-                    <span>Bocanada</span>
+                    <img src="assets/logo-noctis.png" alt="NOCTIS Logo" class="img-logo-nav">
+                    <span>NOCTIS</span>
                 </a>
-                <ul class="nav-links">
+                <ul class="enlaces-nav">
                     <li><a href="index.html">Inicio</a></li>
                     <li><a href="index.html#ofertas">Ofertas</a></li>
                     <li><a href="index.html#nosotros">Nosotros</a></li>
-                    <li><a href="index.html#contacto" class="btn-primary">Contacto</a></li>
+                    <li><a href="index.html#contacto" class="boton-primario">Contacto</a></li>
                 </ul>
-                <div class="hamburger">
+                <div class="hamburguesa">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -56,157 +58,165 @@
             </div>
         </nav>
 
-        <nav class="secondary-navbar">
-            <div class="container">
-                <ul class="secondary-nav-links">
-                    <li><a href="combos.html" class="active">Combos Destilados & Promos</a></li>
+        <nav class="barra-navegacion-secundaria">
+            <div class="contenedor">
+                <ul class="enlaces-nav-secundaria">
+                    <li><a href="combos.html" class="activo">Combos Destilados & Promos</a></li>
                     <li><a href="alcoholicas.html">Bebidas Alcohólicas</a></li>
                     <li><a href="sin-alcohol.html">Bebidas Sin Alcohol</a></li>
-                    <li><a href="energizantes.html">Energizantes</a></li>
+
                 </ul>
+                <div class="contenedor-busqueda">
+                    <input type="text" id="busqueda-producto" placeholder="Buscar productos...">
+                    <i class="fas fa-search"></i>
+                </div>
             </div>
         </nav>
     </header>
 
-    <section class="hero">
-        <div class="video-overlay"></div>
-        <img src="assets/hero-bg-internal.png" alt="Fondo elegante de bebidas" class="hero-bg">
-        <div class="hero-content container">
-            <!-- Text removed as requested -->
+    <section class="portada">
+        <div class="superposicion-video"></div>
+        <img src="assets/hero-bg-internal.png" alt="Fondo elegante de bebidas" class="fondo-portada">
+        <div class="contenido-portada contenedor">
+            <h1 class="aparecer">Combos Destilados & Promos</h1>
         </div>
     </section>
 
-    <section class="section">
-        <div class="container">
-            <div class="offers-grid">
+    <section class="seccion">
+        <div class="contenedor">
+            <div class="grilla-ofertas">
                 <!-- Smirnoff + Gaseosa + Hielo -->
-                <div class="offer-card fade-in-up">
-                    <div class="offer-image">
-                        <img src="assets/combo-smirnoff-gaseosa.png" alt="Combo Smirnoff">
+                <div class="tarjeta-oferta">
+                    <div class="imagen-oferta">
+                        <img src="assets/combo-smirnoff-gaseosa.png" alt="Combo Smirnoff" loading="lazy">
                     </div>
-                    <div class="offer-details">
+                    <div class="detalles-oferta">
                         <h3>Smirnoff + Gaseosa</h3>
                         <p>+ Bolsa de Hielo</p>
-                        <span class="price-tag">$16000</span>
+                        <span class="etiqueta-precio">$16.000</span>
                     </div>
                 </div>
 
                 <!-- Smirnoff + 3 Red Bull -->
-                <div class="offer-card fade-in-up delay-1">
-                    <div class="offer-image">
-                        <img src="assets/combo-smirnoff-redbull.png" alt="Combo Energía">
+                <div class="tarjeta-oferta">
+                    <div class="imagen-oferta">
+                        <img src="assets/combo-smirnoff-redbull.png" alt="Combo Energía" loading="lazy">
                     </div>
-                    <div class="offer-details">
+                    <div class="detalles-oferta">
                         <h3>Smirnoff + 3 Red Bull</h3>
                         <p>Energía pura</p>
-                        <span class="price-tag">$21000</span>
+                        <span class="etiqueta-precio">$21.000</span>
                     </div>
                 </div>
 
                 <!-- Gordon's Gin Pink + Tonica -->
-                <div class="offer-card fade-in-up delay-2">
-                    <div class="offer-image">
-                        <img src="assets/combo-gordons-tonica.png" alt="Combo Pink">
+                <div class="tarjeta-oferta">
+                    <div class="imagen-oferta">
+                        <img src="assets/combo-gordons-tonica.png" alt="Combo Pink" loading="lazy">
                     </div>
-                    <div class="offer-details">
+                    <div class="detalles-oferta">
                         <h3>Gordon's Pink + Tónica</h3>
                         <p>Gin + Tónica 1.5L</p>
-                        <span class="price-tag">$19000</span>
+                        <span class="etiqueta-precio">$19.000</span>
                     </div>
                 </div>
 
                 <!-- Carpano + Paso de los Toros -->
-                <div class="offer-card fade-in-up">
-                    <div class="offer-image">
-                        <img src="assets/combo-carpano.jpg" alt="Combo Carpano">
+                <div class="tarjeta-oferta">
+                    <div class="imagen-oferta">
+                        <img src="assets/combo-carpano.jpg" alt="Combo Carpano" loading="lazy">
                     </div>
-                    <div class="offer-details">
+                    <div class="detalles-oferta">
                         <h3>Carpano + Paso</h3>
                         <p>Vermouth + Pomelo 1.5L</p>
-                        <span class="price-tag">$10000</span>
+                        <span class="etiqueta-precio">$10.000</span>
                     </div>
                 </div>
 
                 <!-- Promo Corona 4x3 -->
-                <div class="offer-card fade-in-up delay-1">
-                    <div class="offer-image">
-                        <img src="assets/corona.png" alt="Promo Corona">
+                <div class="tarjeta-oferta">
+                    <div class="imagen-oferta">
+                        <img src="assets/corona.png" alt="Promo Corona" loading="lazy">
                     </div>
-                    <div class="offer-details">
+                    <div class="detalles-oferta">
                         <h3>Corona 4x3</h3>
                         <p>Llevá 4 pagá 3 (710ml)</p>
-                        <span class="price-tag">$17500</span>
+                        <span class="etiqueta-precio">$17.500</span>
                     </div>
                 </div>
 
                 <!-- Fernet + Coca + Hielo -->
-                <div class="offer-card fade-in-up delay-2">
-                    <div class="offer-image">
-                        <img src="assets/combo-fernet.jpg" alt="Combo Fernet">
+                <div class="tarjeta-oferta">
+                    <div class="imagen-oferta">
+                        <img src="assets/combo-fernet.jpg" alt="Combo Fernet" loading="lazy">
                     </div>
-                    <div class="offer-details">
+                    <div class="detalles-oferta">
                         <h3>Fernet + Coca</h3>
                         <p>+ Bolsa de Hielo</p>
-                        <span class="price-tag">$20000</span>
+                        <span class="etiqueta-precio">$20.000</span>
                     </div>
                 </div>
 
                 <!-- Sernova + Gaseosa + Hielo -->
-                <div class="offer-card fade-in-up">
-                    <div class="offer-image">
-                        <img src="assets/combo-sernova.jpg" alt="Combo Sernova">
+                <div class="tarjeta-oferta">
+                    <div class="imagen-oferta">
+                        <img src="assets/combo-sernova.jpg" alt="Combo Sernova" loading="lazy">
                     </div>
-                    <div class="offer-details">
+                    <div class="detalles-oferta">
                         <h3>Sernova + Gaseosa</h3>
                         <p>+ Bolsa de Hielo</p>
-                        <span class="price-tag">$16500</span>
+                        <span class="etiqueta-precio">$16.500</span>
                     </div>
                 </div>
 
                 <!-- Amargo Obrero + Paso de los Toros -->
-                <div class="offer-card fade-in-up delay-1">
-                    <div class="offer-image">
-                        <img src="assets/combo-amargo-obrero.png" alt="Combo Obrero">
+                <div class="tarjeta-oferta">
+                    <div class="imagen-oferta">
+                        <img src="assets/combo-amargo-obrero.png" alt="Combo Obrero" loading="lazy">
                     </div>
-                    <div class="offer-details">
+                    <div class="detalles-oferta">
                         <h3>Amargo Obrero + Paso</h3>
                         <p>Aperitivo + Pomelo</p>
-                        <span class="price-tag">$9000</span>
+                        <span class="etiqueta-precio">$9.000</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <footer id="contacto" class="footer">
-        <div class="container footer-content">
-            <div class="footer-brand">
-                <h3>Bocanada</h3>
+    <footer id="contacto" class="pie-pagina">
+        <div class="contenedor contenido-pie-pagina">
+            <div class="marca-pie-pagina">
+                <h3>NOCTIS</h3>
                 <p>Tu destino para las mejores bebidas.</p>
             </div>
-            <div class="footer-links">
+            <div class="enlaces-pie-pagina">
                 <h4>Enlaces</h4>
                 <a href="index.html">Inicio</a>
                 <a href="index.html#ofertas">Ofertas</a>
                 <a href="index.html#nosotros">Nosotros</a>
             </div>
-            <div class="footer-contact">
+            <div class="contacto-pie-pagina">
                 <h4>Contacto</h4>
                 <p><i class="fas fa-truck"></i> Envíos a todo Mendoza hasta las 3:30</p>
                 <p><i class="fas fa-boxes-stacked"></i> Ventas Mayoristas y Minoristas</p>
-                <div class="socials">
-                    <a href="https://www.instagram.com/bocanada.bebidas/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://wa.me/5492612596488" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <div class="redes-sociales">
+                    <a href="#" aria-label="Instagram" style="cursor: default;"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="WhatsApp" style="cursor: default;"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Bocanada. Todos los derechos reservados.</p>
+        <div class="fondo-pie-pagina">
+            <p>&copy; 2025 NOCTIS. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <!-- Modular JS -->
+    <!-- JS Modular -->
+    <script src="js/cart.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/toast.js"></script>
+    <script src="js/quick-view.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/theme.js"></script>
     <script src="js/age-verification.js"></script>
 </body>
 </html>

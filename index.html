@@ -3,52 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bocanada | Bebidas & Experiencias</title>
-    <link rel="icon" href="assets/logo-bocanada.jpg" type="image/jpeg">
+    <title>NOCTIS | Bebidas & Experiencias Premium</title>
+    <link rel="icon" href="assets/logo-noctis.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Modular CSS -->
+    <!-- CSS Modular -->
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/components/navbar.css">
     <link rel="stylesheet" href="css/components/footer.css">
     <link rel="stylesheet" href="css/components/cards.css">
+    <link rel="stylesheet" href="css/components/toast.css">
+    <link rel="stylesheet" href="css/components/cart.css">
     <link rel="stylesheet" href="css/pages/home.css">
 </head>
 <body>
-    <!-- Age Verification Modal -->
-    <div id="age-verification-modal" class="age-modal">
-        <div class="age-modal-content">
-            <div class="age-modal-logo">
-                <img src="assets/logo-bocanada.jpg" alt="Bocanada Logo">
+    <!-- Modal de Verificación de Edad -->
+    <div id="age-verification-modal" class="modal-edad">
+        <div class="contenido-modal-edad">
+            <div class="logo-modal-edad">
+                <img src="assets/logo-noctis.png" alt="NOCTIS Logo">
             </div>
-            <h2>Bienvenido a Bocanada</h2>
+            <h2>Bienvenido a NOCTIS</h2>
             <p>Debes ser mayor de 18 años para ingresar a este sitio.</p>
-            <p class="age-question">¿Eres mayor de 18 años?</p>
-            <div class="age-modal-actions">
-                <button id="btn-yes" class="btn-primary">SÍ, SOY MAYOR</button>
-                <button id="btn-no" class="btn-secondary">NO, SALIR</button>
+            <p class="pregunta-edad">¿Eres mayor de 18 años?</p>
+            <div class="acciones-modal-edad">
+                <button id="btn-yes" class="boton-primario">SÍ, SOY MAYOR</button>
+                <button id="btn-no" class="boton-secundario">NO, SALIR</button>
             </div>
-            <p class="legal-text">Al ingresar, aceptas nuestros términos y condiciones. Bebe con moderación.</p>
+            <p class="texto-legal">Al ingresar, aceptas nuestros términos y condiciones. Bebe con moderación.</p>
         </div>
     </div>
 
-    <header class="site-header">
-        <nav class="navbar">
-            <div class="container nav-container">
-                <a href="#" class="logo">
-                    <img src="assets/logo-bocanada.jpg" alt="Bocanada Logo" class="nav-logo-img">
-                    <span>Bocanada</span>
+    <header class="encabezado-sitio">
+        <nav class="barra-navegacion">
+            <div class="contenedor contenedor-nav">
+                <a href="index.html" class="logo">
+                    <img src="assets/logo-noctis.png" alt="NOCTIS Logo" class="img-logo-nav">
+                    <span>NOCTIS</span>
                 </a>
-                <ul class="nav-links">
+                <ul class="enlaces-nav">
                     <li><a href="#hero">Inicio</a></li>
                     <li><a href="#ofertas">Ofertas</a></li>
                     <li><a href="#nosotros">Nosotros</a></li>
-                    <li><a href="#contacto" class="btn-primary">Contacto</a></li>
+                    <li><a href="#contacto" class="boton-primario">Contacto</a></li>
                 </ul>
-                <div class="hamburger">
+                <div class="hamburguesa">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -56,113 +58,121 @@
             </div>
         </nav>
 
-        <nav class="secondary-navbar">
-            <div class="container">
-                <ul class="secondary-nav-links">
+        <nav class="barra-navegacion-secundaria">
+            <div class="contenedor">
+                <ul class="enlaces-nav-secundaria">
                     <li><a href="combos.html">Combos Destilados & Promos</a></li>
                     <li><a href="alcoholicas.html">Bebidas Alcohólicas</a></li>
                     <li><a href="sin-alcohol.html">Bebidas Sin Alcohol</a></li>
-                    <li><a href="energizantes.html">Energizantes</a></li>
+
                 </ul>
+                <div class="contenedor-busqueda">
+                    <input type="text" id="busqueda-producto" placeholder="Buscar productos...">
+                    <i class="fas fa-search"></i>
+                </div>
             </div>
         </nav>
     </header>
 
-    <section id="hero" class="hero">
-        <div class="video-overlay"></div>
-        <img src="assets/hero-bg.png" alt="Fondo elegante de bebidas" class="hero-bg">
-        <div class="hero-content container">
-            <h1 class="fade-in">El Arte de Beber Bien</h1>
-            <p class="fade-in delay-1">Descubre nuestra selección premium de bebidas y licores.</p>
-            <a href="#ofertas" class="btn-primary fade-in delay-2">Ver Ofertas</a>
-            <p class="shipping-note fade-in delay-2"><i class="fas fa-truck-fast"></i> Envíos a todo Mendoza hasta las 3:30</p>
+    <section id="hero" class="portada">
+        <div class="superposicion-video"></div>
+        <img src="assets/hero-bg.png" alt="Fondo elegante de bebidas" class="fondo-portada">
+        <div class="contenido-portada contenedor">
+            <h1 class="aparecer">El Arte de Beber Bien</h1>
+            <p class="aparecer retraso-1">Descubre nuestra selección premium de bebidas y licores.</p>
+            <a href="#ofertas" class="boton-primario aparecer retraso-2">Ver Ofertas</a>
+            <p class="shipping-note aparecer retraso-2"><i class="fas fa-truck-fast"></i> Envíos a todo Mendoza hasta las 3:30</p>
         </div>
     </section>
 
-    <section id="ofertas" class="section offers">
-        <div class="container">
-            <h2 class="section-title">Ofertas Exclusivas</h2>
-            <div class="offers-grid">
-                <div class="offer-card fade-in-up">
-                    <div class="offer-image">
+    <section id="ofertas" class="seccion offers">
+        <div class="contenedor">
+            <h2 class="titulo-seccion">Ofertas Exclusivas</h2>
+            <div class="grilla-ofertas">
+                <div class="tarjeta-oferta">
+                    <div class="imagen-oferta">
                         <img src="assets/oferta Jack Daniels.jpg" alt="Oferta Jack Daniels">
                     </div>
-                    <div class="offer-details">
+                    <div class="detalles-oferta">
                         <h3>Jack Daniel's</h3>
                         <p>El clásico Tennessee Whiskey. Suavizado gota a gota.</p>
-                        <span class="price-tag">Oferta Especial</span>
+                        <span class="etiqueta-precio">$50.000</span>
                     </div>
                 </div>
-                <div class="offer-card fade-in-up delay-1">
-                    <div class="offer-image">
-                        <img src="assets/oferta Jagger.jpg" alt="Oferta Jägermeister">
+                <div class="tarjeta-oferta">
+                    <div class="imagen-oferta">
+                        <img src="assets/oferta Jagger.jpg" alt="Oferta Jägermeister" loading="lazy">
                     </div>
-                    <div class="offer-details">
+                    <div class="detalles-oferta">
                         <h3>Jägermeister</h3>
                         <p>56 hierbas, un sabor inconfundible. Sírvelo helado.</p>
-                        <span class="price-tag">Best Seller</span>
+                        <span class="etiqueta-precio">$50.000</span>
                     </div>
                 </div>
-                <div class="offer-card fade-in-up delay-2">
-                    <div class="offer-image">
-                        <img src="assets/oferta Red Label.jpg" alt="Oferta Johnnie Walker Red Label">
+                <div class="tarjeta-oferta">
+                    <div class="imagen-oferta">
+                        <img src="assets/oferta Red Label.jpg" alt="Oferta Johnnie Walker Red Label" loading="lazy">
                     </div>
-                    <div class="offer-details">
+                    <div class="detalles-oferta">
                         <h3>Red Label</h3>
                         <p>El whisky escocés de mezcla más vendido del mundo.</p>
-                        <span class="price-tag">Imperdible</span>
+                        <span class="etiqueta-precio">$46.500</span>
                     </div>
                 </div>
             </div>
             <div style="text-align: center; margin-top: 50px;">
-                <a href="assets/listado-stock.jpg" download="Bocanada-Listado-Stock" class="btn-primary fade-in-up"><i class="fas fa-file-download"></i> Descargar Lista de Precios</a>
+                <a href="assets/listado-stock.jpg" download="NOCTIS-Listado-Stock" class="boton-primario aparecer-arriba"><i class="fas fa-file-download"></i> Descargar Lista de Precios</a>
             </div>
         </div>
-    </section>
 
-    <section id="nosotros" class="section about">
-        <div class="container about-container">
+    <section id="nosotros" class="seccion about">
+        <div class="contenedor about-container">
             <div class="about-text">
-                <h2 class="section-title">Sobre Bocanada</h2>
-                <p>En Bocanada, no solo vendemos bebidas; curamos experiencias. Desde los clásicos atemporales hasta las últimas tendencias en mixología, nuestra selección está pensada para los paladares más exigentes.</p>
+                <h2 class="titulo-seccion">Sobre NOCTIS</h2>
+                <p>En NOCTIS, no solo vendemos bebidas; curamos experiencias. Desde los clásicos atemporales hasta las últimas tendencias en mixología, nuestra selección está pensada para los paladares más exigentes.</p>
                 <p><strong>Realizamos ventas mayoristas y minoristas.</strong> Ya sea para tu disfrute personal, un evento especial o para abastecer tu negocio, tenemos los mejores precios y el stock que necesitas.</p>
                 <p>Contáctanos para realizar tu pedido y recibir asesoramiento personalizado.</p>
             </div>
             <div class="about-image">
-                 <img src="assets/logo-bocanada.jpg" alt="Interior Bocanada">
+                 <img src="assets/logo-noctis.png" alt="Interior NOCTIS">
             </div>
         </div>
     </section>
 
-    <footer id="contacto" class="footer">
-        <div class="container footer-content">
-            <div class="footer-brand">
-                <h3>Bocanada</h3>
+    <footer id="contacto" class="pie-pagina">
+        <div class="contenedor contenido-pie-pagina">
+            <div class="marca-pie-pagina">
+                <h3>NOCTIS</h3>
                 <p>Tu destino para las mejores bebidas.</p>
             </div>
-            <div class="footer-links">
+            <div class="enlaces-pie-pagina">
                 <h4>Enlaces</h4>
                 <a href="#hero">Inicio</a>
                 <a href="#ofertas">Ofertas</a>
                 <a href="#nosotros">Nosotros</a>
             </div>
-            <div class="footer-contact">
+            <div class="contacto-pie-pagina">
                 <h4>Contacto</h4>
                 <p><i class="fas fa-truck"></i> Envíos a todo Mendoza hasta las 3:30</p>
                 <p><i class="fas fa-boxes-stacked"></i> Ventas Mayoristas y Minoristas</p>
-                <div class="socials">
-                    <a href="https://www.instagram.com/bocanada.bebidas/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://wa.me/5492612596488" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <div class="redes-sociales">
+                    <a href="#" aria-label="Instagram" style="cursor: default;"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="WhatsApp" style="cursor: default;"><i class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Bocanada. Todos los derechos reservados.</p>
+        <div class="fondo-pie-pagina">
+            <p>&copy; 2025 NOCTIS. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <!-- Modular JS -->
+    <!-- JS Modular -->
+    <script src="js/cart.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/toast.js"></script>
+    <script src="js/quick-view.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/theme.js"></script>
     <script src="js/age-verification.js"></script>
 </body>
 </html>

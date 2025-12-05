@@ -1,210 +1,298 @@
-/* Site Header Container */
-.site-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    transition: var(--transition);
+/* Contenedor del Encabezado del Sitio */
+.encabezado-sitio {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: var(--transition);
 }
 
-.site-header.scrolled {
-    background-color: rgba(10, 10, 10, 0.95);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
-    backdrop-filter: blur(10px);
+.encabezado-sitio.desplazado {
+  background-color: rgba(10, 10, 10, 0.7); /* Más transparente */
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px); /* Blur más fuerte */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Borde sutil */
 }
 
-/* Main Navbar */
-.navbar {
-    padding: 20px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+/* Barra de Navegación Principal */
+.barra-navegacion {
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.site-header.scrolled .navbar {
-    padding: 10px 0;
-    border-bottom: none;
+.encabezado-sitio.desplazado .barra-navegacion {
+  padding: 10px 0;
+  border-bottom: none;
 }
 
-.nav-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.contenedor-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-    color: var(--text-primary);
-    font-family: var(--font-display);
-    font-size: 1.5rem;
-    font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
 }
 
-.nav-logo-img {
-    height: 40px;
-    width: auto;
-    border-radius: 50%;
-    border: 1px solid var(--accent-gold);
+.img-logo-nav {
+  height: 40px;
+  width: auto;
+  border-radius: 50%;
+  border: 1px solid var(--accent-gold);
 }
 
-.nav-links {
-    display: flex;
-    gap: 30px;
-    list-style: none;
-    align-items: center;
+.enlaces-nav {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  align-items: center;
 }
 
-.nav-links a {
-    text-decoration: none;
-    color: var(--text-primary);
-    font-weight: 500;
-    transition: var(--transition);
-    font-size: 0.95rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+.enlaces-nav a {
+  text-decoration: none;
+  color: var(--text-primary);
+  font-weight: 500;
+  transition: var(--transition);
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.nav-links a:not(.btn-primary):hover {
-    color: var(--accent-gold);
+.enlaces-nav a:not(.boton-primario):hover {
+  color: var(--accent-gold);
 }
 
-/* Secondary Navbar */
-.secondary-navbar {
-    background-color: rgba(20, 20, 20, 0.95); /* Slightly different bg */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    padding: 10px 0;
-    /* No fixed position needed if inside site-header */
+/* Barra de Navegación Secundaria */
+.barra-navegacion-secundaria {
+  background-color: rgba(20, 20, 20, 0.6); /* Efecto Glass */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 10px 0;
+  backdrop-filter: blur(8px);
+  /* No se necesita posición fija si está dentro de site-header */
 }
 
-.secondary-nav-links {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    list-style: none;
-    flex-wrap: wrap;
+.enlaces-nav-secundaria {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  list-style: none;
+  flex-wrap: wrap;
 }
 
-.secondary-nav-links a {
-    text-decoration: none;
-    color: var(--text-secondary);
-    font-family: var(--font-display);
-    font-size: 1.1rem;
-    transition: var(--transition);
-    position: relative;
-    padding-bottom: 5px;
+.enlaces-nav-secundaria a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  transition: var(--transition);
+  position: relative;
+  padding-bottom: 5px;
 }
 
-.secondary-nav-links a:hover,
-.secondary-nav-links a.active {
-    color: var(--accent-gold);
+.enlaces-nav-secundaria a:hover,
+.enlaces-nav-secundaria a.activo {
+  color: var(--accent-gold);
 }
 
-.secondary-nav-links a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--accent-gold);
-    transition: var(--transition);
+.enlaces-nav-secundaria a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent-gold);
+  transition: var(--transition);
 }
 
-.secondary-nav-links a:hover::after,
-.secondary-nav-links a.active::after {
-    width: 100%;
+.enlaces-nav-secundaria a:hover::after,
+.enlaces-nav-secundaria a.activo::after {
+  width: 100%;
 }
 
-/* Hamburger Menu */
-.hamburger {
-    display: none;
-    cursor: pointer;
+/* Menú Hamburguesa */
+.hamburguesa {
+  display: none;
+  cursor: pointer;
 }
 
-.hamburger span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    margin: 5px auto;
-    background-color: var(--text-primary);
-    transition: var(--transition);
+.hamburguesa span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  background-color: var(--text-primary);
+  transition: var(--transition);
 }
 
-/* Responsive */
+/* Responsivo */
 @media (max-width: 768px) {
-    .hamburger {
-        display: block;
-        z-index: 1001;
-    }
+  .hamburguesa {
+    display: block;
+    z-index: 1001;
+  }
 
-    .hamburger.active span:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-    }
+  .hamburguesa.activo span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
 
-    .hamburger.active span:nth-child(2) {
-        opacity: 0;
-    }
+  .hamburguesa.activo span:nth-child(2) {
+    opacity: 0;
+  }
 
-    .hamburger.active span:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-    }
+  .hamburguesa.activo span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
 
-    .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        height: 100vh;
-        width: 70%;
-        background-color: rgba(10, 10, 10, 0.98);
-        backdrop-filter: blur(10px);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        transition: var(--transition);
-        z-index: 1000;
-        box-shadow: -5px 0 15px rgba(0,0,0,0.5);
-    }
+  .enlaces-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 70%;
+    background-color: rgba(10, 10, 10, 0.98);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: var(--transition);
+    z-index: 1000;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+  }
 
-    .nav-links.nav-active {
-        right: 0;
-    }
+  .enlaces-nav.nav-activo {
+    right: 0;
+  }
 
-    .nav-links li {
-        opacity: 0;
-        transform: translateX(50px);
-        transition: all 0.5s ease;
-        margin: 15px 0;
-    }
+  .enlaces-nav li {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.5s ease;
+    margin: 15px 0;
+  }
 
-    .nav-links.nav-active li {
-        opacity: 1;
-        transform: translateX(0);
-    }
+  .enlaces-nav.nav-activo li {
+    opacity: 1;
+    transform: translateX(0);
+  }
 
-    /* Adjust secondary navbar for mobile */
-    .secondary-navbar {
-        overflow-x: auto;
-        white-space: nowrap;
-        padding: 10px 0;
-        -webkit-overflow-scrolling: touch;
-    }
-    
-    .secondary-nav-links {
-        justify-content: flex-start;
-        padding: 0 20px;
-        gap: 20px;
-    }
+  /* Ajustar barra secundaria para móvil */
+  .barra-navegacion-secundaria {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px 0;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .enlaces-nav-secundaria {
+    justify-content: flex-start;
+    padding: 0 20px;
+    gap: 20px;
+  }
 }
 
 @keyframes navLinkFade {
-    from {
-        opacity: 0;
-        transform: translateX(50px);
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Estilos de Barra de Búsqueda */
+.contenedor-busqueda {
+    position: relative;
+    max-width: 300px;
+    width: 100%;
+    margin-left: auto; /* Empujar a la derecha si container flex lo permite */
+}
+
+/* Ajustar contenedor de barra secundaria para manejar barra de búsqueda */
+.barra-navegacion-secundaria .contenedor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.contenedor-busqueda input {
+    width: 100%;
+    padding: 8px 15px;
+    padding-right: 35px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    color: var(--text-primary);
+    font-family: var(--font-main);
+    transition: var(--transition);
+}
+
+.contenedor-busqueda input:focus {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: var(--accent-gold);
+    outline: none;
+}
+
+.contenedor-busqueda i {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-secondary);
+    pointer-events: none;
+}
+
+/* Botón Toggle de Tema */
+.boton-alternar-tema {
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--accent-gold);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-left: 20px; /* Espacio desde logo */
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Transición con rebote */
+    margin-right: 20px; /* Espacio desde enlaces si se coloca ahí, o hamburguesa */
+}
+
+.boton-alternar-tema:hover {
+    background: var(--accent-gold);
+    color: var(--bg-dark); /* Contraste al hacer hover */
+    transform: rotate(15deg) scale(1.1);
+    box-shadow: 0 0 15px var(--accent-gold);
+    border-color: transparent;
+}
+
+/* Ajuste Responsivo */
+@media (max-width: 768px) {
+    .barra-navegacion-secundaria .contenedor {
+        justify-content: center;
     }
-    to {
-        opacity: 1;
-        transform: translateX(0);
+    .contenedor-busqueda {
+        max-width: 100%;
+        margin-left: 0;
+    }
+    
+    .boton-alternar-tema {
+        margin-right: 15px; /* Ajuste para layout móvil */
     }
 }
+

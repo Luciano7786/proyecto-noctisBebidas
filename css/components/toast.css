@@ -1,0 +1,45 @@
+/* Contenedor Toast posicionado fijo abajo a la derecha */
+.contenedor-toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 10000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    pointer-events: none; /* Permitir clicks a través si no está sobre el toast */
+}
+
+/* Estilo Individual de Toast */
+.notificacion {
+    background: rgba(20, 20, 20, 0.9);
+    color: var(--text-primary);
+    padding: 15px 25px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    pointer-events: auto;
+    font-family: var(--font-main);
+    font-weight: 500;
+    min-width: 250px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.notificacion.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.notificacion i {
+    font-size: 1.2rem;
+}
+
+.notificacion-exito i { color: var(--accent-gold); }
+.notificacion-error i { color: #ff4757; }
+.notificacion-info i { color: #5352ed; }
