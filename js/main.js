@@ -1,6 +1,4 @@
-          });
-      }
-  }
+document.addEventListener('DOMContentLoaded', () => {
 
   // Intersection Observer para Animaciones de Scroll
   const observerOptions = {
@@ -70,19 +68,12 @@
     }
 
     // Notificación Toast para Tarjetas de Oferta
+    // [Modificado] El click en la tarjeta ya no agrega al carrito, por lo tanto no mostramos toast aquí.
+    // La funcionalidad se mueve exclusivamente al modal de vista rápida.
     const offerCards = document.querySelectorAll('.tarjeta-oferta');
     offerCards.forEach(card => {
-        card.style.cursor = 'pointer'; // Hacer que parezca clicable
-        card.addEventListener('click', () => {
-            // Extraer nombre del producto para mejor UX
-            const title = card.querySelector('h3')?.innerText || 'Producto';
-            // Verificar si showToast está definido (ahora es global)
-            if (typeof showToast === 'function') {
-                showToast(`${title} agregado al carrito`);
-            } else {
-                console.warn('showToast function not found');
-            }
-        });
+        // card.style.cursor = 'pointer'; // Roto el enlace directo
+        // Logic removed
     });
 
 

@@ -23,7 +23,7 @@ const Cart = {
         
         // Actualización en tiempo real: Si el drawer está abierto, re-renderizar items
         const drawer = document.getElementById('cajon-carrito');
-        if (drawer && drawer.classList.contains('open')) {
+        if (drawer && drawer.classList.contains('abierto')) {
             this.renderItems();
         }
     },
@@ -63,8 +63,8 @@ const Cart = {
 
     toggleCart() {
         const cartDrawer = document.getElementById('cajon-carrito');
-        cartDrawer.classList.toggle('open');
-        if (cartDrawer.classList.contains('open')) {
+        cartDrawer.classList.toggle('abierto');
+        if (cartDrawer.classList.contains('abierto')) {
             this.renderItems();
         }
     },
@@ -110,6 +110,14 @@ const Cart = {
         btn.addEventListener('click', () => this.toggleCart());
         document.getElementById('cerrar-carrito').addEventListener('click', () => this.toggleCart());
         document.getElementById('papelera-vaciar-carrito').addEventListener('click', () => {
+             if (this.items.length === 0) {
+                 if (typeof showToast === 'function') {
+                     showToast('Tu carrito no tiene bebidas para vaciar.');
+                 } else {
+                     alert('Tu carrito no tiene bebidas para vaciar.');
+                 }
+                 return;
+             }
              if(confirm('¿Estás seguro de que quieres vaciar el carrito?')) {
                  this.clearAll();
              }
@@ -130,6 +138,12 @@ const Cart = {
         const container = document.getElementById('contenedor-items-carrito');
         const totalEl = document.getElementById('precio-total-carrito');
         
+        const trashBtn = document.getElementById('papelera-vaciar-carrito');
+        if (trashBtn) {
+            trashBtn.style.opacity = this.items.length === 0 ? '0.5' : '1';
+            trashBtn.style.cursor = this.items.length === 0 ? 'not-allowed' : 'pointer';
+        }
+
         if (this.items.length === 0) {
             container.innerHTML = '<p class="msg-vacio">Tu carrito está vacío.</p>';
             totalEl.innerText = '$0';
@@ -192,15 +206,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Modifiquemos los listeners de click en main.js para llamar a Cart.addItem()
     // O: ya que main.js agrega listener de click a .tarjeta-oferta, podemos agregar OTRO listener aquí.
     
-    const offerCards = document.querySelectorAll('.tarjeta-oferta');
-    offerCards.forEach(card => {
-        card.addEventListener('click', () => {
-            const title = card.querySelector('h3').innerText;
-            const price = card.querySelector('.etiqueta-precio').innerText;
-            // Agregar al Carrito
-            Cart.addItem({ title, price });
-        });
-    });
+    // [Eliminado] La acción de click en la tarjeta ya no debe agregar al carrito directament.
+    // Solo a través del modal de vista rápida.
 
     // ¿También enganchar el botón "Agregar al Carrito" de Vista Rápida?
     // quick-view.js genera el botón dinámicamente.

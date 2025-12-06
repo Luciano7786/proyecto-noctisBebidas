@@ -45,7 +45,8 @@
     top: 0;
     right: -400px;
     width: 350px;
-    height: 100vh;
+    height: 100vh; /* Fallback */
+    height: 100dvh; /* Mobile Moderno */
     background: #1a1a1a;
     z-index: 10000;
     box-shadow: -10px 0 50px rgba(0,0,0,0.5);

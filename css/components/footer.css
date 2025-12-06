@@ -1,6 +1,6 @@
 .pie-pagina {
   background-color: #050505;
-  padding: 80px 0 20px;
+  padding: 80px 0 0px; /* Reduced bottom padding */
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   margin-top: auto;
 }
@@ -9,7 +9,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 40px;
-  margin-bottom: 60px;
+  margin-bottom: 40px; /* Reduced from 60px */
   text-align: center; /* Centrar contenido de las columnas */
   justify-items: center; /* Centrar elementos del grid horizontalmente */
 }
@@ -65,9 +65,14 @@
 .fondo-pie-pagina {
   text-align: center;
   padding-top: 20px;
+  padding-bottom: 20px; /* Ensure some breathing room but fixed */
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   font-size: 0.8rem;
   color: var(--text-secondary);
+}
+
+.fondo-pie-pagina p {
+    margin-bottom: 0;
 }
 
 /* Sobrescritura Footer Tema Claro */

@@ -1,0 +1,69 @@
+/* Estilos para el Dropdown de Ordenamiento */
+.controles-ordenamiento {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+.select-ordenamiento {
+    background-color: var(--bg-card);
+    color: var(--text-primary);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-family: var(--font-main);
+    font-size: 0.95rem;
+    cursor: pointer;
+    outline: none;
+    transition: var(--transition);
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d4af37' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 16px;
+    padding-right: 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.select-ordenamiento:hover,
+.select-ordenamiento:focus {
+    border-color: var(--accent-gold);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
+}
+
+.select-ordenamiento option {
+    background-color: var(--bg-card);
+    color: var(--text-primary);
+    padding: 10px;
+}
+
+/* Tema Claro */
+body.tema-claro .select-ordenamiento {
+    background-color: var(--bg-card-light);
+    color: var(--text-primary-light);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+body.tema-claro .select-ordenamiento:hover,
+body.tema-claro .select-ordenamiento:focus {
+    border-color: var(--accent-gold);
+}
+
+body.tema-claro .select-ordenamiento option {
+    background-color: var(--bg-card-light);
+    color: var(--text-primary-light);
+}
+
+@media (max-width: 768px) {
+    .controles-ordenamiento {
+        justify-content: center;
+    }
+    
+    .select-ordenamiento {
+        width: 100%;
+        max-width: 300px;
+    }
+}
