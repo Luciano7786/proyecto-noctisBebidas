@@ -6,7 +6,8 @@
 }
 
 .tarjeta-oferta {
-  background: rgba(30, 30, 30, 0.4); /* Base Glassmorphism */
+  background: rgba(30, 30, 30, 0.4);
+  /* Base Glassmorphism */
   backdrop-filter: blur(10px);
   border-radius: 15px;
   overflow: hidden;
@@ -46,7 +47,8 @@
   font-family: var(--font-display);
   font-size: 1.5rem;
   margin-bottom: 10px;
-  color: var(--text-primary); /* Explícitamente blanco */
+  color: var(--text-primary);
+  /* Explícitamente blanco */
 }
 
 .detalles-oferta p {
@@ -68,146 +70,197 @@
 
 /* Botón de Vista Rápida (inyectado por JS) */
 .boton-vista-rapida {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    background: rgba(255, 255, 255, 0.9);
-    color: var(--bg-dark);
-    border: none;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    z-index: 10;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--bg-dark);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .imagen-oferta:hover .boton-vista-rapida {
-    transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .boton-vista-rapida:hover {
-    background: var(--accent-gold);
-    color: white;
+  background: var(--accent-gold);
+  color: white;
 }
 
 /* Botón Vista Rápida en Tema Claro */
 body.tema-claro .boton-vista-rapida {
-    background: #333; /* Fondo oscuro para contraste contra tarjeta clara */
-    color: #fff;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  background: #333;
+  /* Fondo oscuro para contraste contra tarjeta clara */
+  color: #fff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 body.tema-claro .boton-vista-rapida:hover {
-    background: var(--accent-gold);
-    color: #000; /* Texto oscuro en botón dorado para mejor contraste en modo claro */
+  background: var(--accent-gold);
+  color: #000;
+  /* Texto oscuro en botón dorado para mejor contraste en modo claro */
 }
 
 /* Estilo de Modal Vista Rápida */
 .modal-vista-rapida {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(5px);
-    z-index: 11000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(5px);
+  z-index: 11000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
 }
 
 .modal-vista-rapida.activo {
-    opacity: 1;
-    pointer-events: all;
+  opacity: 1;
+  pointer-events: all;
 }
 
 .contenido-vista-rapida {
-    background: var(--bg-card);
-    width: 90%;
-    max-width: 800px;
-    border-radius: 20px;
-    padding: 30px;
-    position: relative;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transform: translateY(50px);
-    transition: transform 0.3s ease;
+  background: var(--bg-card);
+  width: 90%;
+  max-width: 800px;
+  border-radius: 20px;
+  padding: 30px;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transform: translateY(50px);
+  transition: transform 0.3s ease;
 }
 
 .modal-vista-rapida.activo .contenido-vista-rapida {
-    transform: translateY(0);
+  transform: translateY(0);
 }
 
 .cerrar-modal {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    background: none;
-    border: none;
-    color: var(--text-secondary);
-    font-size: 2rem;
-    cursor: pointer;
-    transition: var(--transition);
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 2rem;
+  cursor: pointer;
+  transition: var(--transition);
 }
 
 .cerrar-modal:hover {
-    color: var(--accent-gold);
+  color: var(--accent-gold);
 }
 
 .grilla-vista-rapida {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
 }
 
 .imagen-vista-rapida img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    object-fit: cover;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
 }
 
 .detalles-vista-rapida {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .titulo-vista-rapida {
-    font-family: var(--font-display);
-    font-size: 2rem;
-    color: var(--text-primary);
-    margin-bottom: 10px;
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--text-primary);
+  margin-bottom: 10px;
 }
 
 .precio-vista-rapida {
-    font-size: 1.5rem;
-    color: var(--accent-gold);
-    font-weight: 600;
-    margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: var(--accent-gold);
+  font-weight: 600;
+  margin-bottom: 20px;
 }
 
 .descripcion-vista-rapida {
-    color: var(--text-secondary);
-    margin-bottom: 30px;
-    line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 30px;
+  line-height: 1.6;
 }
 
 @media (max-width: 768px) {
-    .grilla-vista-rapida {
-        grid-template-columns: 1fr;
-    }
-    .imagen-vista-rapida {
-        display: none; /* Ocultar imagen en móviles pequeños para ahorrar espacio */
-    }
+  .grilla-vista-rapida {
+    grid-template-columns: 1fr;
+  }
+
+  .imagen-vista-rapida {
+    display: none;
+    /* Ocultar imagen en móviles pequeños para ahorrar espacio */
+  }
+
+  /* Ajuste de tarjetas en móviles */
+  .tarjeta-oferta {
+    /* Reducir padding interno */
+  }
+
+  .imagen-oferta {
+    height: 250px;
+    /* Reducir altura de imagen en tablet/móvil */
+  }
+
+  .detalles-oferta {
+    padding: 15px;
+    /* Padding más compacto */
+  }
+
+  .detalles-oferta h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .grilla-ofertas {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    /* Permitir 2 columnas en móviles muy chicos si caben */
+    gap: 15px;
+  }
+
+  .imagen-oferta {
+    height: 180px;
+    /* Imagen más pequeña para tarjetas compactas */
+  }
+
+  .detalles-oferta h3 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+  }
+
+  .detalles-oferta p {
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+  }
+
+  .etiqueta-precio {
+    padding: 3px 10px;
+    font-size: 0.75rem;
+  }
 }

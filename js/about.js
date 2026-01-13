@@ -13,31 +13,13 @@ function injectAboutModal() {
             <button id="cerrar-modal-acerca" class="cerrar-modal-acerca"><i class="fas fa-times"></i></button>
             <div class="header-modal-acerca">
                 <h2>Acerca de NOCTIS</h2>
-                <p style="margin-bottom: 1.5rem; color: var(--text-secondary);">
-                    Tu destino premium para las mejores bebidas, entregadas en la puerta de tu casa.
-                </p>
             </div>
             
             <p class="modal-descripcion">
-                Desarrollado con <i class="fas fa-heart heart-icon"></i> usando <strong>Vanilla JS</strong> por<br>
-                <strong>Luciano Cirvini</strong>
+                Fundada en el corazón de Mendoza, <strong>NOCTIS</strong> redefine la experiencia de disfrutar bebidas premium.<br><br>
+                Somos proveedores de una amplia variedad de licores, vinos y destilados, entregados directamente a tu puerta con un servicio inigualable.<br><br>
+                Más que una tienda, somos tus anfitriones en el arte del buen beber.
             </p>
-
-            <span class="modal-version">v1.0.0</span>
-
-            <a href="https://lucianojoaquincirvini.web.app/" target="_blank" class="btn-portfolio">
-                Visitar Portfolio <i class="fas fa-external-link-alt"></i>
-            </a>
-
-            <div class="tech-stack">
-                <h4>Tecnologías Utilizadas</h4>
-                <div class="stack-icons">
-                    <i class="fab fa-html5 stack-icon html" title="HTML5"></i>
-                    <i class="fab fa-css3-alt stack-icon css" title="CSS3"></i>
-                    <i class="fab fa-js stack-icon js" title="JavaScript"></i>
-                    <i class="fas fa-fire stack-icon firebase" title="Firebase"></i>
-                </div>
-            </div>
         </div>
     </div>
     `;

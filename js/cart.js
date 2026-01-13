@@ -1,6 +1,6 @@
 const Cart = {
     items: [],
-    
+
     init() {
         // Cargar desde localStorage
         const saved = localStorage.getItem('noctis_cart');
@@ -20,11 +20,19 @@ const Cart = {
         }
         this.save();
         this.updateBadge();
-        
+
         // Actualización en tiempo real: Si el drawer está abierto, re-renderizar items
         const drawer = document.getElementById('cajon-carrito');
         if (drawer && drawer.classList.contains('abierto')) {
             this.renderItems();
+        }
+
+        // Trigger animation
+        const cartIcon = document.querySelector('#btn-icono-carrito i');
+        if (cartIcon) {
+            cartIcon.classList.remove('cart-anim');
+            void cartIcon.offsetWidth; // Trigger reflow
+            cartIcon.classList.add('cart-anim');
         }
     },
 
@@ -110,19 +118,19 @@ const Cart = {
         btn.addEventListener('click', () => this.toggleCart());
         document.getElementById('cerrar-carrito').addEventListener('click', () => this.toggleCart());
         document.getElementById('papelera-vaciar-carrito').addEventListener('click', () => {
-             if (this.items.length === 0) {
-                 if (typeof showToast === 'function') {
-                     showToast('Tu carrito no tiene bebidas para vaciar.');
-                 } else {
-                     alert('Tu carrito no tiene bebidas para vaciar.');
-                 }
-                 return;
-             }
-             if(confirm('¿Estás seguro de que quieres vaciar el carrito?')) {
-                 this.clearAll();
-             }
+            if (this.items.length === 0) {
+                if (typeof showToast === 'function') {
+                    showToast('Tu carrito no tiene bebidas para vaciar.');
+                } else {
+                    alert('Tu carrito no tiene bebidas para vaciar.');
+                }
+                return;
+            }
+            if (confirm('¿Estás seguro de que quieres vaciar el carrito?')) {
+                this.clearAll();
+            }
         });
-        
+
         // Redirección al Checkout
         const checkoutBtn = document.getElementById('btn-finalizar-compra');
         if (checkoutBtn) {
@@ -137,7 +145,7 @@ const Cart = {
     renderItems() {
         const container = document.getElementById('contenedor-items-carrito');
         const totalEl = document.getElementById('precio-total-carrito');
-        
+
         const trashBtn = document.getElementById('papelera-vaciar-carrito');
         if (trashBtn) {
             trashBtn.style.opacity = this.items.length === 0 ? '0.5' : '1';
@@ -171,11 +179,11 @@ const Cart = {
                     <button class="btn-cantidad mas">+</button>
                 </div>
             `;
-            
+
             // Eventos para cantidad (usando clausura para mantener referencia al título)
             itemEl.querySelector('.menos').addEventListener('click', () => this.updateQuantity(item.title, -1));
             itemEl.querySelector('.mas').addEventListener('click', () => this.updateQuantity(item.title, 1));
-            
+
             container.appendChild(itemEl);
         });
 
@@ -201,11 +209,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Ten cuidado de no duplicar listeners si main.js los agrega.
     // En su lugar, main.js llama a 'mostrarToast'. ¿Podemos exponer un ayudante global 'agregarAlCarrito'?
     // O adjuntar listeners específicos aquí.
-    
+
     // Mejor estrategia: ¿Adjuntar listener a una clase común o anular el comportamiento del toast?
     // Modifiquemos los listeners de click en main.js para llamar a Cart.addItem()
     // O: ya que main.js agrega listener de click a .tarjeta-oferta, podemos agregar OTRO listener aquí.
-    
+
     // [Eliminado] La acción de click en la tarjeta ya no debe agregar al carrito directament.
     // Solo a través del modal de vista rápida.
 
